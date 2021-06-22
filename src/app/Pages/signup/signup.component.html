@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<main>
+    <div class="row">
+        <div class="left-1">
+            <img src="https://source.unsplash.com/600x700/?nature,water" class="img" alt="">
+        </div>
+      <div class="left col-lg-4">
+       
+        <div class='window' >
+            <img src="../shared/images/hudson-hintze-vpxeE7s-my4-unsplash.jpg" alt="imgae">
+          <div class='overlay'></div>
+          <div class='content'>
+            <div class="alert" *ngIf="haserror">
+                {{errormsg}}
+              </div>
+              
+            <div class='welcome'>FriendsBook</div>
+          <p>{{user|json}}</p>
+           <form action="" (ngSubmit)="formsubmit()" [formGroup]="userSignupForm" >
+            <div class='input-fields'>
+              <input type='text' placeholder='Firstname'  class='input-line full-width' name="firstname" formControlName="firstname"  >
+              <span *ngIf="!userSignupForm.get('firstname').valid && userSignupForm.get('email').touched">firstname is required !</span>
+              <input type='text' placeholder='Lastname' name="lastname" class='input-line full-width' formControlName="lastname">
+              <input type='date' placeholder='Date Of Birth'  name="dob" class='input-line full-width' formControlName="dob">
+              <input type='email' placeholder='Email' name="email" class='input-line full-width'formControlName="email" >
+              <span *ngIf="!userSignupForm.get('email').valid && userSignupForm.get('email').touched" >please enter a valid email</span>
+              <input type='password' placeholder='Password' name="password" class='input-line full-width' formControlName="password">
+      
+      
+            </div>
+
+            <div>
+              <span *ngIf="!userSignupForm.valid && userSignupForm.touched" >all the feild are required</span>
+              <button type="Submit" class='ghost-round full-width' [disabled]="!disableBtn" >Create Account</button></div>
+          </form>
+            <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div>
+            <div><a routerLink="/login"><button class='ghost-round full-width'>Login</button></a></div>
+          </div>
+        </div>
+      </div></div>
+ </main>
+</body>
+</html>

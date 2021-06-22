@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<main>
+    <div class="row">
+        <div class="left-1">
+            <img src="https://source.unsplash.com/600x700/?nature,water" class="img" alt="">
+        </div>
+      <div class="left col-lg-4">
+       
+        <div class='window' >
+            
+          <div class='overlay'></div>
+          <div class="alert" *ngIf="haserror">
+            {{errormsg}}
+          </div>
+          <div class='content'>
+              <Span class="welcome"> Welcome {{user1}}</Span>
+              <Span class="welcome"> To</Span>
+            <div class='welcome'> FriendsBook</div>
+           <form action="" (ngSubmit)="formSubmit(f)" #f="ngForm">
+  
+            <div class='input-fields'>
+             
+              <input type='email' placeholder='Email' class='input-line full-width'  ngModel   name="username" email required #email="ngModel">
+              <span *ngIf='!email.valid && email.touched'>enter a valid email</span>
+              <input type='password' placeholder='password'  class='input-line full-width' ngModel name="password" required #password="ngModel">
+              <span *ngIf='!password.valid && password.touched'>enter password</span>
+      
+            </div>
+            <div><button type="submit" class='ghost-round full-width' [disabled]="!f.valid"><a href="#">Login</a></button></div>
+          </form>
+            <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div>
+            <div><a routerLink="/signup"><button class='ghost-round full-width'>Create user</button></a></div>
+          </div>
+        </div>
+      </div></div>
+ </main>
+</body>
+</html>

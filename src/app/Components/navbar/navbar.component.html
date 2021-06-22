@@ -1,0 +1,32 @@
+<nav *ngIf="searchbar"  class="navbar navbar-expand-lg navbar-light bg">
+    <a  routerLink="/userprofile" class="navbar-brand" href="#"><h1>FriendsBook</h1></a>
+    
+
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active nav-li" routerLinkActive="active" *ngIf="homevalid">
+          <a class="nav-link" href="#" routerLink="/userprofile"><span class="follow">Home</span> <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item nav-li" routerLinkActive="active">
+            <a class="nav-link" *ngIf="loginvalid" routerLink="/login"><span class="follow">Login</span></a>
+           
+          </li>
+          <li class="nav-item nav-li" routerLinkActive="active">
+            <a class="nav-link" *ngIf="signupvalid" routerLink="/signup"><span class="follow">Signup</span></a>
+          </li>
+          <li class="nav-item nav-li" *ngIf="logoutvalid" routerLinkActive="active">
+            <a class="nav-link" (click)="logout()" ><span class="follow">Logout</span></a>
+          </li>
+       
+      </ul>
+      <div class="search-bar" *ngIf="searchvalid">
+        <a routerLink="/search">
+      <form class="form-inline my-2 my-lg-0 float-right">
+        <input (input)="onSearchChange($event.target.value)" class="form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search" >
+       
+      </form> </a>
+    </div>
+    </div>
+  </nav>

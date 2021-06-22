@@ -1,0 +1,27 @@
+<div class="background">
+    <div class="container">
+      <div class="panel pricing-table" *ngFor="let user of users |searchfilter:searchval;let i='index'">
+        
+        <div class="pricing-plan">
+          <img [src]="user.imageurl" alt="" class="pricing-img">
+          <h2 class="pricing-header">{{user.firstname}}</h2>
+          <ul class="pricing-features">
+            <li class="pricing-features-item">{{user.email}}</li>
+            <li class="pricing-features-item">{{user.dob}}</li>
+          </ul>
+
+          <a  class="pricing-button" (click)="addfriend(user)">{{friendshipStatus}}</a>
+        </div>
+     
+      </div>
+    </div>
+    <nav aria-label="Page navigation example">
+     
+      <ul class="pagination justify-content-center" *ngFor="let p of pages;let i ='index'">
+        
+        <li class="page-item"><a class="page-link" (click)="pagenumber(i)">{{i}}</a></li>
+        
+      </ul>
+     
+    </nav>
+  </div>
